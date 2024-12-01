@@ -6,9 +6,11 @@ fn main() {
 
     let (left, right) = utils::left_and_right_lists(input_path);
     let iter = left.iter().zip(right.iter());
-    let mut dif = 0;
-    for (&l, &r) in iter {
-        dif += (l - r).abs();
-    }
+
+    let dif: i32 = left.iter().zip(right.iter())
+        .map(|(l, r)| l - r)
+        .map(i32::abs)
+        .sum();
+
     println!("{}", dif);
 }
