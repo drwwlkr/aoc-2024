@@ -1,6 +1,10 @@
 use std::fs::File;
 use std::io::{self, BufRead};
 
+pub fn path_from_argv() -> String {
+    let args: Vec<String> = std::env::args().collect();
+    args.get(1).expect( "must provide file path!").to_string()
+}
 pub fn left_and_right_lists(input_path: &str) -> (Vec<i32>, Vec<i32>) {
     let mut left: Vec<i32> = Vec::new();
     let mut right: Vec<i32> = Vec::new();

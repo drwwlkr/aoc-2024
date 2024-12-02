@@ -1,10 +1,9 @@
 use std::collections::HashMap;
 
 fn main() {
-    let args: Vec<String> = std::env::args().collect();
-    let input_path = args.get(1).expect( "must provide file path!");
 
-    let (left, right) = utils::left_and_right_lists(input_path);
+
+    let (left, right) = utils::left_and_right_lists(&utils::path_from_argv());
 
     let mut right_counts = HashMap::new();
 
